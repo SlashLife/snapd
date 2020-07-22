@@ -95,10 +95,8 @@ func (x *cmdList) Execute(args []string) error {
 		if err == client.ErrNoSnapsInstalled {
 			if len(names) == 0 {
 				fmt.Fprintln(Stderr, i18n.G("No snaps are installed yet. Try 'snap install hello-world'."))
-				return nil
-			} else {
-				return ErrNoMatchingSnaps
 			}
+			return ErrNoMatchingSnaps
 		}
 		return err
 	} else if len(snaps) == 0 {
